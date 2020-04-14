@@ -1,0 +1,56 @@
+.build-scenario{
+
+  .comp-full-bleed-bg-color{
+
+    &::before{
+      content:'';
+      position: absolute;
+      left:0;
+      right:0;
+      top:0;
+      background-color: #F6EEDB;
+      height: 18rem;
+      transition: height .25 ease
+    }
+
+  }
+
+  .tabContainer {
+    margin-top: 9rem;
+  }
+
+  .chart-wrapper{
+    max-width: 1600px;
+    margin: 0 auto;
+    width:85vw;
+  }
+
+  .img-wrapper{
+    position:relative;
+    width:100%;
+    display:block;
+    z-index:2;
+    margin:0 auto -20px;
+
+    > img {
+      width:100%;
+    }
+  }
+
+  @media only screen and (min-width:768px){
+ .comp-full-bleed-bg-color::before{ height: 23rem;}
+
+
+  }
+  @media only screen and (min-width:1024px){
+.comp-full-bleed-bg-color::before{ height: 320px;}
+  }
+  @media only screen and (min-width:1280px){
+.comp-full-bleed-bg-color::before{ height: 28rem;}
+  }
+  @media only screen and (min-width:1700px){
+
+  }
+
+}
+

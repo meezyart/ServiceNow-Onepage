@@ -1,0 +1,98 @@
+.service-workflows{
+  .content-header{
+    min-height: 8rem;
+  }
+
+  .content-col{
+    min-width: 90vw;
+  }
+  ol.connect{
+    position:relative;
+    li{
+      list-style: none;
+      font-size: 1.8rem;
+      font-family: 'GilroyRegular';
+      position: absolute;
+      // width:55vw;
+      max-width:70vw;
+      backface-visibility:hidden;
+      opacity:0;
+    }
+    li::before{
+      content: counter(contentCounter) ". ";
+      counter-increment: contentCounter;
+
+      position: absolute;
+      left: -32px;
+      font-size: 2.0rem;
+      line-height: 2.6rem;
+      color: #293e40;
+      font-family: 'GilroySemiBold';
+    }
+    .title{
+      // display: inline;
+      // position: absolute;
+    }
+  }
+
+  ol.start{counter-reset:contentCounter;}
+  ol.last{
+    li::before{
+        content: "6. " !important;
+  }
+ }
+
+
+  .animation-wrapper{
+    .inner{
+      padding-top: 1em;
+    }
+    .mainGraphic{
+      max-width:91vw;
+      padding-bottom: 36%;
+      margin:0 auto;
+    }
+    .step-graphic{
+      max-width:91vw;
+      padding-bottom: 18%;
+      margin:0 auto;
+    }
+  }
+
+
+
+  @media only screen and (min-width:768px){
+    ol.connect li::before{font-size:2.4rem;line-height:4.12rem}
+    .animation-wrapper{
+      .inner{
+        padding-top: 3em;
+      }
+      .mainGraphic{
+        max-width:70vw;
+      }
+      .step-graphic{
+        max-width:70vw;
+      }
+    }
+  }
+
+  @media only screen and (min-width:1024px){
+    ol.connect li::before{
+      font-size: 2.8rem;
+      line-height: 3.64rem;
+      // left: 2rem;
+    }
+  }
+  @media only screen and (min-width:1280px){
+  }
+  @media only screen and (min-width:1700px){
+    ol.connect li::before{font-size: 3.6rem;
+      line-height: 4.68rem;
+      // left: 2rem;
+    }
+  }
+
+
+}
+
+

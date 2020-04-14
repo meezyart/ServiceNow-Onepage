@@ -1,0 +1,74 @@
+.connect-anywhere{
+
+   transition:width .25s ease,max-width .25s ease;
+  .comp-full-bleed-bg-color{
+    // padding-top:110px;
+   > img {
+     left: 50%;
+     transform: translate(-50%,0);
+     position: absolute;
+     z-index: 1;
+     max-height: 108%;
+    // width:100%;
+    // height:auto;position:absolute;left:0;right:0;
+    top:0;
+    // left:unset;max-width:118%;right:0
+  }
+}
+  .connect-anywhere-outer-wrapper{
+    max-height:auto;
+    min-height:100rem;
+    overflow: hidden;
+    transition: height .25s ease;
+  }
+
+    .animation-wrapper{
+      .connectGraphic{
+        max-width: 100%;
+        padding-bottom: 180%;
+        margin: 0 auto;
+      }
+
+    }
+
+
+
+  @media only screen and (min-width:768px){
+    // .connect-anywhere-outer-wrapper{max-height:none;min-height:92rem}
+    .animation-wrapper{
+      .connectGraphic{
+        max-width: 75vw;
+        padding-bottom: 102%;
+        margin: 0 auto;
+      }
+
+    }
+  }
+
+  @media only screen and (min-width:1024px){
+
+
+  }
+  @media only screen and (min-width:1280px){
+    // .connect-anywhere-outer-wrapper{max-height:none;min-height:112rem}
+    .animation-wrapper{
+      .connectGraphic{
+        max-width: 65vw;
+        padding-bottom: 80%;
+        margin: 0 auto;
+      }
+
+    }
+  }
+  @media only screen and (min-width:1700px){
+    // .connect-anywhere-outer-wrapper{max-height:none;min-height:130rem}
+    .animation-wrapper{
+      .connectGraphic{
+        max-width: 48vw;
+        padding-bottom: 66%;
+        margin: 0 auto;
+      }
+
+    }
+  }
+}

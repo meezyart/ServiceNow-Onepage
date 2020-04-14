@@ -1,0 +1,108 @@
+@import '_fonts';
+// @import '_megadump';
+@import '_global-nav';
+
+@import 'mega-dump';
+@import 'hero-marque';
+@import 'tabs';
+@import 'start-quickly';
+@import 'service-workflows';
+@import 'connect-anywhere';
+@import 'build-scenario';
+
+
+body {
+  background: white;
+  // color:white;
+  font-family: 'GilroyRegular', GilroyRegular;
+}
+
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+}
+.container-fluid {
+  max-width: 170rem;
+}
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font: 62.5% / normal GilroyRegular;
+  min-height: 100%;
+  position: relative;
+}
+html * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: GilroyRegular;
+  font-size: 1.4rem;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+body.no-scroll {
+  overflow-y: hidden;
+  position: fixed;
+}
+.site-wrapper.variation-100percent {
+  width: 100%;
+}
+.site-body-content-wrapper {
+  overflow: hidden;
+}
+.site-wrapper {
+  padding-top: 6rem;
+}
+.site-wrapper.homepage {
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .site-wrapper {
+    padding-top: 7rem;
+  }
+  .site-wrapper.homepage {
+    padding-top: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .site-wrapper {
+    padding-top: 8rem;
+  }
+  .site-wrapper.homepage {
+    padding-top: 0;
+  }
+}
+
+// svg stuff
+.svg-wrapper, .img-wrapper {
+	display: block;
+	position: relative;
+	width: 100%;
+
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.svg-content{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.no-left-padding{padding-left:0}
+
+// Now Platform
+
+.now-platform{
+  .top{
+    margin-bottom:8rem;
+  }
+}
