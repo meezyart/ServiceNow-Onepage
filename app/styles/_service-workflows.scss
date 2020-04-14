@@ -23,7 +23,7 @@
       counter-increment: contentCounter;
 
       position: absolute;
-      left: -32px;
+      left: -50px;
       font-size: 2.0rem;
       line-height: 2.6rem;
       color: #293e40;
@@ -38,7 +38,7 @@
   ol.start{counter-reset:contentCounter;}
   ol.last{
     li::before{
-        content: "6. " !important;
+        content: "5. " !important;
   }
  }
 
