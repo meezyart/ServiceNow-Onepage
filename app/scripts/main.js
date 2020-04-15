@@ -204,9 +204,10 @@ $(document).ready(function () {
   tl.from('#Facebook_Messanger',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
   }
 
-  let main = gsap.timeline({repeat: -1, repeatDelay:2});
+  // let main = gsap.timeline({repeat: -1, repeatDelay:2});
+  let main = gsap.timeline();
 
-  // main.add(topGraphic());
+  main.add(topGraphic);
   // main.add(stepGraphic());
   // main.add(lastBox());
 
