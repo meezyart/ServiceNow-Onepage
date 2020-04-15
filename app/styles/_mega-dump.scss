@@ -117,7 +117,7 @@ a{text-decoration:none}
 .label-copy{font-family:GilroyBold;font-size:1rem;line-height:1rem;text-transform:uppercase}
 .label-copy p,.label-copy span{font-size:1rem;line-height:1rem}
 .label-copy p span.super-case,.label-copy span.super-case,.label-copy sup{font-size:.3px;top:.2rem}
-.site-width-1700{margin:auto auto;max-width:170rem;padding-left:1rem;padding-right:1rem;width:100%;}
+.site-width-1700{margin:auto auto;max-width:170rem;padding-left:2.5rem;padding-right:2.5rem;width:100%;}
 
 // cta
 .cta-btn{background-color:#50e3c2;display:inline-block;font-size:1.6rem;padding:1.2rem 5rem 1.2rem 5rem}
@@ -1320,7 +1320,7 @@ ul{padding-start:0}
 .component-content-block{background-position:top;background-repeat:no-repeat;background-size:contain;position:relative}
 .component-content-block.bg-cover-size-mobile{background-position:top;background-repeat:no-repeat;background-size:cover}
 .component-content-block .flex-box-container{position:relative}
-.component-content-block .flex-box-container .content-col{padding-bottom:2rem;padding-top:2rem;z-index:1}
+.component-content-block .flex-box-container .content-col{padding-bottom:2rem;padding-top:4rem;z-index:1}
 //  Body
 .component-content-block .flex-box-container .content-col .body,.component-content-block .flex-box-container .content-col .body p{font-family:GilroyRegular !important;font-size:1.8rem;line-height:1.7}
 
@@ -5337,7 +5337,7 @@ html body.no-scroll-new{overflow:hidden !important}
 .component-link-grid .link-grid-right .link-grid-item-wrapper .link-grid-item .link-grid-item-info .link-grid-item-description.mob-tab-hide{display:inline-block}
 .component-link-grid .link-grid-right .link-grid-item-wrapper .link-grid-item-img{margin-bottom:2.4rem}
 }
-@media only screen and (min-width:1700px){.component-link-grid .site-width-1700{max-width:170rem;padding-left:2rem;padding-right:2rem}
+@media only screen and (min-width:1700px){.component-link-grid .site-width-1700{max-width:170rem;padding-left:4rem;padding-right:4rem}
 .component-link-grid .link-grid-outer-wrapper{height:100%;overflow:unset;position:relative;width:100%}
 .component-link-grid .link-grid-outer-wrapper:before,.component-link-grid .link-grid-outer-wrapper::before{content:"";padding-top:52.46332%;width:100%}
 .component-link-grid .link-grid-outer-wrapper:after,.component-link-grid .link-grid-outer-wrapper::after{clear:both;content:"";display:table}
@@ -8121,7 +8121,7 @@ html body.no-scroll-new{overflow:hidden !important}
 .universalForm .section-component-universal-form.styles-old-template .form-in-overlay .component-overlay-new-outter-wrapper .component-overlay-new-inner-wrapper .flex-box-container .uf-assets-container .container{max-width:100%}
 .universalForm .section-component-universal-form.styles-old-template .form-in-overlay .component-overlay-new-outter-wrapper .component-overlay-new-inner-wrapper .flex-box-container .tablet-spacing{left:0;margin:0;padding:0}
 .universalForm .section-component-universal-form.styles-old-template .component-overlay-container-new{left:0;overflow-y:auto}
-.universalForm .section-component-universal-form.styles-old-template .site-width-1700{margin:auto auto;max-width:170rem;padding-left:1rem;padding-right:1rem;width:100%}
+.universalForm .section-component-universal-form.styles-old-template .site-width-1700{margin:auto auto;max-width:170rem;padding-left:2rem;padding-right:2rem;width:100%}
 .universalForm .section-component-universal-form.styles-old-template .gable-green:before{background-color:#293e40 !important}
 .universalForm .section-component-universal-form.styles-old-template .pure-white{fill:#fff !important;stroke:#fff !important}
 .universalForm .section-component-universal-form.styles-old-template .component-small-marquee .description ul li{list-style:disc}

@@ -206,23 +206,28 @@ $(document).ready(function () {
 
   let main = gsap.timeline({repeat: -1, repeatDelay:2});
 
-  main.add(topGraphic());
+  // main.add(topGraphic());
   // main.add(stepGraphic());
   // main.add(lastBox());
 
+  // build-scenario tabs
+  $('.build-scenario-tabs').tabs({
 
-    // Tab navigation
-  // Code goes here
-  $('.tabs').tabs({
+       hide: { effect: 'fade', duration: 500 },
+       show: { effect: 'fade', duration: 800 }
+  });
+
+  // Start Quickly tabs
+  $('.start-quickly-tabs').tabs({
     beforeActivate: function( ui ) {
       console.log( ui.currentTarget.id,ui)
-
+      if(ui.currentTarget.id){
         let tl = gsap.timeline();
         tl.to('#backImg', .5, {opacity:0},'-=.25')
         .set('#backImg',{attr:{src:`../images/${ui.currentTarget.id}-img.jpg`}})
         .to('#backImg', 1, {opacity:1})
         .add(buildForAnimation(`#${ui.currentTarget.id}-content .subtabContent`));
-
+      }
 
      },
        hide: { effect: 'fade', duration: 500 },
