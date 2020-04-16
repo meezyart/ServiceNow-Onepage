@@ -17,6 +17,7 @@
       // max-width:90vw;
       backface-visibility:hidden;
       // opacity:0;
+      
     }
     li::before{
       content: counter(contentCounter) ". ";
@@ -92,7 +93,7 @@
     }
   }
   @media only screen and (min-width:1280px){
-    
+
   }
   @media only screen and (min-width:1700px){
     ol.connect li::before{font-size: 3.6rem;

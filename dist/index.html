@@ -34,14 +34,14 @@
                       <img id="logo-now" src="./images/svg/servicenow-header-logo.svg" alt="ServiceNow">
                       </a>
                       <ul id="topNavLinks">
-                        <li rel="solutionsNav">Solutions</li>
-                        <li rel="platformNav">Platform</li>
-                        <li rel="customersNav">Customers</li>
-                        <li rel="eventsNav">Events</li>
-                        <li rel="aboutNav">About</li>
+                        <li rel="solutionsNav"><a href="https://www.servicenow.com/solutions/it-workflows.html">Solutions</a></li>
+                        <li rel="platformNav"><a href="https://www.servicenow.com/now-platform.html">Platform</a></li>
+                        <li rel="customersNav"><a href="https://www.servicenow.com/success.html">Customers</a></li>
+                        <li rel="eventsNav"><a href="https://www.servicenow.com/events.html">Events</a></li>
+                        <li rel="aboutNav"><a href="https://www.servicenow.com/company.html">About</a></li>
                         <li class="mobile-only divider"></li>
-                        <li class="mobile-only"><a href="/contact-us-request-info.html">Contact Us</a></li>
-                        <li class="mobile-only"><a href="/lpdem/demonow-all.html">Demo</a></li>
+                        <li class="mobile-only"><a href="https://www.servicenow.com//contact-us-request-info.html">Contact Us</a></li>
+                        <li class="mobile-only"><a href="https://www.servicenow.com/lpdem/demonow-all.html">Demo</a></li>
                         <!-- <li id="js-nav-back">Back</li> -->
                       </ul>
                   </div>
@@ -138,7 +138,7 @@
 
           </div>
           <!-- Service Workflows -->
-          <div class="universalContainer service-workflows section">
+          <div id="service-workflows-sec" class="universalContainer service-workflows section">
             <section class="in-page-navigation-container" id="works" data-com-name="universalcontainer" data-component-name="universalContainer">
               <div class="contentBlock section">
                 <section class="component-content-block variation-3" data-com-name="contentblock" data-com-name-variant="imageright-imageoverlay" data-component-name="contentBlock">
@@ -149,7 +149,7 @@
                               <div class="content-wrap ">
                                 <!-- Header animation -->
 
-                                <div class="content-header header-animation flex-box-col-sm-6 flex-box-col-xlg-8">
+                                <div class="content-header header-animation flex-box-col-sm-12 flex-box-col-xlg-9">
                                   <ol class="connect start">
                                     <li class="label-1">
                                       <div class="title gable-green-text">
@@ -240,9 +240,9 @@
                                       </div>
                                     </div>
                                 </div>
-
+                                <div id="stepTrigger"></div>
                                 <!-- Header animation part 2 -->
-                                <div class="content-header header-animation flex-box-col-sm-6 flex-box-col-xlg-8">
+                                <div class="content-header header-animation flex-box-col-sm-12 flex-box-col-xlg-9">
                                   <ol class="connect last">
                                     <li class="label-5">
                                       <div class="title gable-green-text">
@@ -384,7 +384,7 @@
             </section>
           </div>
           <!-- Start Quickly -->
-          <div class="universalContainer start-quickly section">
+          <div id="start-quickly-sec" class="universalContainer start-quickly section">
             <section class="in-page-navigation-container" id="works" data-com-name="universalcontainer" data-component-name="universalContainer">
               <div class="contentBlock section ">
                   <section class="component-content-block start-quickly-outer-wrapper" data-com-name="contentblock" data-com-name-variant="imageright-imageoverlay" data-component-name="contentBlock">
@@ -1157,12 +1157,12 @@
               </section>
           </div>
            <!-- Connect From Anywhere -->
-           <div class="universalContainer connect-anywhere section">
+           <div id="connect-anywhere-sec" class="universalContainer connect-anywhere section">
             <section class="in-page-navigation-container" id="works" data-com-name="universalContainer" data-component-name="universalContainer">
               <div class="contentBlock section ">
                   <section class="component-content-block connect-anywhere-outer-wrapper" data-com-name="contentblock" data-com-name-variant="imageright-imageoverlay" data-component-name="contentBlock">
                     <div class="comp-full-bleed-bg-color  white">
-                      <img src="./images/connect-quickly.jpg" alt="ServiceNow customer delighted with his easy work experience" class="cus-logo-svg">
+                      <img src="./images/connect-quickly.jpg" alt="ServiceNow customer delighted with her easy work experience" class="cus-logo-svg">
                     </div>
                     <div class="site-width-1700 connect-anywhere-inner-wrapper">
                           <div class="flex-box-container connect-anywhere-content">
@@ -1355,6 +1355,14 @@
       <script src="vendor/jquery-ui.min.js"></script>
       <script src="vendor/gsap.min.js"></script>
       <script src="vendor/ScrollMagic.min.js"></script>
+
+      <script src="vendor/animation.gsap.js"></script>
+      <!-- indicator for dev only -->
+      <!-- <script
+        type="text/javascript"
+        src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"
+      ></script> -->
+
       <script src="scripts/main.js"></script>
     </body>
   </html>
