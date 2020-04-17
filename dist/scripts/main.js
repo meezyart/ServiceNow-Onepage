@@ -841,13 +841,13 @@ $(document).ready(function () {
 
   function sizeIt() {
     w = window.innerWidth;
-    var newSize = w > 1280 ? "big" : "small";
+    var newSize = w > 1280 ? 'big' : 'small';
 
     if (newSize != size) {
       size = newSize;
 
-      if (newSize === "small") {
-        console.log("The screen is now small - ScrollMagic has been destroyed by aliens."); // TweenMax.set("#target", { clearProps: "all" });
+      if (newSize === 'small') {
+        console.log('The screen is now small - ScrollMagic has been destroyed by aliens.'); // TweenMax.set("#target", { clearProps: "all" });
         // mainGraphic.add(stepGraphic);
         // topGraphic.seek(0)
 
@@ -856,7 +856,7 @@ $(document).ready(function () {
         controller.destroy(true); // tl.restart()
         // tl.play()
       } else {
-        console.log("The screen is now large - ScrollMagic is active."); // mainGraphic.remove(stepGraphic);
+        console.log('The screen is now large - ScrollMagic is active.'); // mainGraphic.remove(stepGraphic);
         // topGraphic.restart()
         // topGraphic.pause()
         // mainGraphic.restart().pause()
