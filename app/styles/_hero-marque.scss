@@ -79,7 +79,7 @@
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block{padding:0;right:-18%;text-align:right;width:100%}
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>img,
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>svg,
-    .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>video{position:absolute;right:-34rem;}
+    .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>video{position:absolute;right:-23rem;}
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block .video-js video{max-width:none;min-width:auto;width:auto}
     .hero-marquee-component .hero-marquee-component-outter-wrapper{overflow:hidden;position:relative}
     .hero-marquee-component .hero-marquee-component-outter-wrapper .hero-marquee-left-col,.hero-marquee-component .hero-marquee-component-outter-wrapper .hero-marquee-right-col{position:relative}
@@ -108,7 +108,7 @@
     .hero-marquee-component .hero-marquee-component-outter-wrapper .hero-marquee-left-col .hero-marquee-header-section .hero-marquee-title p{font-size:1.8rem;line-height:2.6rem}
 
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block{right:0%}
-    .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>img{right:-24rem;}
+    .hero-marquee-component .hero-marquee-photo-frame .component-asset-block>img{right:-43rem;}
     .hero-marquee-component .hero-marquee-component-outter-wrapper .hero-marquee-text-cta-section-text{padding-bottom:3rem}
     .hero-marquee-component .hero-marquee-left-background{display:block;left:-2rem;opacity:.3}
     .hero-marquee-component .hero-marquee-eyebrow{padding-bottom:1rem}
@@ -195,7 +195,7 @@
 }
 @media(max-width:767px) and (min-width:480px){
     .hero-marquee-component .hero-marquee-photo-frame .component-asset-block img{
-      height:100%;padding:2rem;padding-bottom:0 !important;padding-top:0 !important;position:absolute;right:-512px;top:0 !important
+      height:100%;padding:2rem;padding-bottom:0 !important;padding-top:0 !important;position:absolute;right:-471px;top:0 !important
     }
 }
 @media(max-width:480px) and (min-width:300px){
@@ -206,7 +206,7 @@
       /* padding: 19px; */
       padding-bottom: 0 !important;
       position: absolute;
-      right: -562px;
+      right: -442px;
       top: 0;
     }
 }

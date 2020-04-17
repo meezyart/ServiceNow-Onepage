@@ -371,7 +371,7 @@ $(document).ready(function () {
       scale: .1,
       ease: 'elastic',
       transformOrigin: '50% 50%'
-    }, '-=0.25'); // return tl;
+    }, '-=0.25');
   }
 
   var stepGraphic = gsap.timeline({
@@ -827,9 +827,7 @@ $(document).ready(function () {
   }, '-=.25');
   mainGraphic.from('.orange-text', .4, {
     opacity: 0
-  }, '-=.25'); // mainGraphic.add(stepGraphic);
-  // let w = window.innerWidth;
-  // // var tween = new TimelineMax();
+  }, '-=.25'); // // var tween = new TimelineMax();
 
   var controller; // let size = w > 1280 ? "big" : "small";
   // if (size === "big") {
@@ -867,11 +865,9 @@ $(document).ready(function () {
       }
     }
   } // window.addEventListener("resize", sizeIt);
-  // function desktopPlay(){
 
 
-  controller = new ScrollMagic.Controller(); //
-
+  controller = new ScrollMagic.Controller();
   var scene = new ScrollMagic.Scene({
     triggerElement: '#service-workflows-sec',
     triggerHook: .6,
@@ -879,23 +875,20 @@ $(document).ready(function () {
     offset: '100px'
   });
   scene.setTween(mainGraphic);
-  scene.addTo(controller); // let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'80%', offset:'100px'})
-
+  scene.addTo(controller);
   var scene2 = new ScrollMagic.Scene({
     triggerElement: '#service-workflows-sec',
-    triggerHook: .1,
+    triggerHook: .2,
     duration: '80%',
     offset: '100px'
   }).setPin('#service-workflows-sec') // add indicators (requires plugin)
   .addTo(controller); // .addIndicators({name: "step pin"})
-  // .setTween(stepGraphic)
-  // .addTo(controller)
 
   var stepScene = new ScrollMagic.Scene({
     triggerElement: '#stepTrigger',
-    triggerHook: 0.27,
+    triggerHook: 0.37,
     duration: stepDuration,
-    offset: '  2.5rem'
+    offset: '  -.5rem'
   });
   stepScene.setTween(stepGraphic);
   stepScene.addTo(controller); // stepScene.addIndicators({name: "stepTrigger"})
@@ -905,16 +898,7 @@ $(document).ready(function () {
     offset: '-80px'
   });
   lastScene.setTween(lastBox);
-  lastScene.addTo(controller); // }
-
-  function mobilePlay() {
-    var main = gsap.timeline();
-    stepGraphic.seek(0);
-    main.add(mainGraphic); // main.add(stepGraphic);
-    // function trackProgress(){
-    //   tl.progress()
-    // }
-  }
+  lastScene.addTo(controller);
 
   function buildForAnimation(prefix) {
     var tl = gsap.timeline();

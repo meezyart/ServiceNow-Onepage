@@ -1,6 +1,8 @@
 
 $(document).ready(function () {
   gsap.defaultEase = Linear.easeNone;
+
+
    // build-scenario tabs
    $('.build-scenario-tabs').tabs({
 
@@ -10,15 +12,14 @@ $(document).ready(function () {
 
 // Start Quickly tabs
 $('.start-quickly-tabs').tabs({
- beforeActivate: function( ui ) {
-   console.log( ui.currentTarget.id,ui)
-   if(ui.currentTarget.id){
-     let tl = gsap.timeline();
-     tl.to('#backImg', .5, {opacity:0},'-=.25')
-     .set('#backImg',{attr:{src:`../images/${ui.currentTarget.id}-img.jpg`}})
-     .to('#backImg', 1, {opacity:1})
-     .add(buildForAnimation(`#${ui.currentTarget.id}-content .subtabContent `));
-
+beforeActivate: function( ui ) {
+  console.log( ui.currentTarget.id,ui)
+  if(ui.currentTarget.id){
+    let tl = gsap.timeline();
+    tl.to('#backImg', .5, {opacity:0},'-=.25')
+    .set('#backImg',{attr:{src:`../images/${ui.currentTarget.id}-img.jpg`}})
+    .to('#backImg', 1, {opacity:1})
+    .add(buildForAnimation(`#${ui.currentTarget.id}-content .subtabContent `));
 
    }
 
@@ -28,22 +29,19 @@ $('.start-quickly-tabs').tabs({
 });
 //
 $('.subtabs').tabs({
- beforeActivate: function( ui ) {
-   console.log( ui.currentTarget.hash,ui)
-   let buildTL = gsap.timeline();
-   buildTL.add(buildForAnimation(ui.currentTarget.hash));
-   buildTL.restart();
-   buildTL.play();
-
+beforeActivate: function( ui ) {
+  console.log( ui.currentTarget.hash,ui)
+  let buildTL = gsap.timeline();
+  buildTL.add(buildForAnimation(ui.currentTarget.hash));
+  buildTL.restart();
+  buildTL.play();
   },
- hide: { effect: 'fade', duration: 400 },
-show: { effect: 'fade', duration: 400 }
+  hide: { effect: 'fade', duration: 400 },
+  show: { effect: 'fade', duration: 400 }
 });
 
 // Scroll Effects
-
-
-  function topGraphic(){
+function topGraphic(){
     let tl = gsap.timeline({ease: Linear.easeNone });
     // tl.from('#orange-box',.25,{opacity:0,scale:.1,ease:"elastic", transformOrigin:"50% 0%"},"-=.25")
 
@@ -125,8 +123,7 @@ show: { effect: 'fade', duration: 400 }
   tl.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
   tl.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
 
-    // return tl;
-  }
+}
 
 
   let stepGraphic = gsap.timeline({ease: Linear.easeNone });
@@ -177,10 +174,7 @@ show: { effect: 'fade', duration: 400 }
   stepGraphic.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
 
 
-
-
-
-  let lastBox = gsap.timeline({ease:'power4'});
+let lastBox = gsap.timeline({ease:'power4'});
 
   lastBox.from('#circle_1',.5,{x:250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'});
   lastBox.from('#slack_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
@@ -211,7 +205,7 @@ show: { effect: 'fade', duration: 400 }
   lastBox.from('#Facebook_Messanger',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
 
-    let mainGraphic = gsap.timeline({ease: Linear.easeNone });
+let mainGraphic = gsap.timeline({ease: Linear.easeNone });
 
     mainGraphic.fromTo('.label-1',1, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
     mainGraphic.from('#talk-box',.5,{scale:0,width:0 , ease:'elastic.out', transformOrigin:'0 200'});
@@ -242,9 +236,7 @@ show: { effect: 'fade', duration: 400 }
     mainGraphic.from('#orange-line',.75,{height:0,opacity:0})
     mainGraphic.from('#orange-textbox',.75,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
     mainGraphic.from('.orange-text',.4,{opacity:0},'-=.25');
-    // mainGraphic.add(stepGraphic);
 
-    // let w = window.innerWidth;
     // // var tween = new TimelineMax();
     let controller;
     // let size = w > 1280 ? "big" : "small";
@@ -287,67 +279,46 @@ function sizeIt() {
 // window.addEventListener("resize", sizeIt);
 
 
-// function desktopPlay(){
 controller = new ScrollMagic.Controller();
-//
-  let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
-            scene.setTween(mainGraphic);
-            scene.addTo(controller);
+
+let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
+          scene.setTween(mainGraphic);
+          scene.addTo(controller);
 
 
-  // let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'80%', offset:'100px'})
-  let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'80%', offset:'100px'})
-            .setPin('#service-workflows-sec')// add indicators (requires plugin)
-            .addTo(controller)
-            // .addIndicators({name: "step pin"})
-            // .setTween(stepGraphic)
-            // .addTo(controller)
+let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .2, duration:'80%', offset:'100px'})
+          .setPin('#service-workflows-sec')// add indicators (requires plugin)
+          .addTo(controller)
+          // .addIndicators({name: "step pin"})
 
 
 
-  let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.27, duration:stepDuration , offset:'  2.5rem'} )
-  stepScene.setTween(stepGraphic);
-            stepScene.addTo(controller);
+let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.37, duration:stepDuration , offset:'  -.5rem'} )
+      stepScene.setTween(stepGraphic);
+      stepScene.addTo(controller);
             // stepScene.addIndicators({name: "stepTrigger"})
 
-  let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
-  lastScene.setTween(lastBox) 
-  lastScene.addTo(controller);
+let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
+      lastScene.setTween(lastBox) 
+      lastScene.addTo(controller);
 
 
 
-          // }
-  function mobilePlay(){
+  function buildForAnimation(prefix){
+    let tl = gsap.timeline();
+        tl.set(`${prefix} #solution-text`,{opacity:0});
+        tl.fromTo(`${prefix} #question-chat-bubble`,.25,{scale:0 , ease:'power4', transformOrigin:'0 200'},{scale:1 , ease:'power4', transformOrigin:'0 200'},.85);
+        tl.fromTo(`${prefix} #avatar`,.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},{scale:1,  ease:'power4', transformOrigin:'50% 50%'},'-=.25');
+        tl.fromTo(`${prefix} #question-text`,1,{opacity:0},{opacity:1},'-=.25');
+        tl.fromTo(`${prefix} #top-line`,.15,{opacity:0},{opacity:1},'-=.75');
 
-    let main = gsap.timeline();
+        tl.fromTo(`${prefix} #midrect`,.25,{scale:0,  ease:'power4', transformOrigin:'50% 50%'},{scale:1,  ease:'power4', transformOrigin:'50% 50%'},'-=.5');
+        tl.fromTo(`${prefix} #mid-text`,.5,{opacity:0},{opacity:1},'-=.25');
 
-
-    stepGraphic.seek(0)
-        main.add(mainGraphic);
-        // main.add(stepGraphic);
-
-    // function trackProgress(){
-    //   tl.progress()
-    // }
-
+        tl.fromTo(`${prefix} #bottom-line`,.15,{opacity:0},{opacity:1},'-=.25')
+        tl.fromTo(`${prefix} #solution-chat-bubble`,.25,{scale:0, transformOrigin:'100% 200'},{scale:1, ease:'power4', transformOrigin:'100% 200'},'-=.25');
+        tl.fromTo(`${prefix} #solution-text`,.5,{opacity:0},{opacity:1});
   }
-
-
-    function buildForAnimation(prefix){
-      let tl = gsap.timeline();
-          tl.set(`${prefix} #solution-text`,{opacity:0});
-          tl.fromTo(`${prefix} #question-chat-bubble`,.25,{scale:0 , ease:'power4', transformOrigin:'0 200'},{scale:1 , ease:'power4', transformOrigin:'0 200'},.85);
-          tl.fromTo(`${prefix} #avatar`,.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},{scale:1,  ease:'power4', transformOrigin:'50% 50%'},'-=.25');
-          tl.fromTo(`${prefix} #question-text`,1,{opacity:0},{opacity:1},'-=.25');
-          tl.fromTo(`${prefix} #top-line`,.15,{opacity:0},{opacity:1},'-=.75');
-
-          tl.fromTo(`${prefix} #midrect`,.25,{scale:0,  ease:'power4', transformOrigin:'50% 50%'},{scale:1,  ease:'power4', transformOrigin:'50% 50%'},'-=.5');
-          tl.fromTo(`${prefix} #mid-text`,.5,{opacity:0},{opacity:1},'-=.25');
-
-          tl.fromTo(`${prefix} #bottom-line`,.15,{opacity:0},{opacity:1},'-=.25')
-          tl.fromTo(`${prefix} #solution-chat-bubble`,.25,{scale:0, transformOrigin:'100% 200'},{scale:1, ease:'power4', transformOrigin:'100% 200'},'-=.25');
-          tl.fromTo(`${prefix} #solution-text`,.5,{opacity:0},{opacity:1});
-    }
 
 
   // main.add(stepGraphic());
