@@ -44,13 +44,41 @@ show: { effect: 'fade', duration: 400 }
 
 
   function topGraphic(){
-
+    let tl = gsap.timeline({ease: Linear.easeNone });
     // tl.from('#orange-box',.25,{opacity:0,scale:.1,ease:"elastic", transformOrigin:"50% 0%"},"-=.25")
 
   // 	step graphic
+
+  tl.fromTo('.label-1',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+  tl.from('#talk-box',.5,{scale:0,width:0 , ease:'elastic.out', transformOrigin:'0 200'});
+  tl.from('#pic-circle',.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},'-=.25');
+  tl.from('#mainText',.5,{opacity:0});
+  tl.to('.label-1',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2});
+  tl.fromTo('.label-2',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+  tl.from('#order-rect',.15,{opacity:0,width:0},'+=.15');
+  tl.to('#order',.25,{fill:'#fff'},'-=.25');
+  tl.from('#pink-line',.5,{opacity:0})
+  tl.from('#pink-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+  tl.from('#pink-text',.4,{opacity:0},'-=.25')
+
+  tl.to('.label-2',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+  tl.fromTo('.label-3',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+
+  tl.from('#laptop-rect',.15,{opacity:0,width:0})
+  tl.to('#laptop',.25,{fill:'#fff'},'-=.25')
+  tl.from('#green-line',.5,{opacity:0})
+  tl.from('#green-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+  tl.from('#green-text',.4,{opacity:0},'-=.25')
+
+  tl.to('.label-3',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+  tl.fromTo('.label-4',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+
+  tl.from('#me-rect',.15,{opacity:0,width:0})
+  tl.to('#me',.25,{fill:'#fff'},'-=.25');
+  tl.from('#orange-line',.5,{height:0,opacity:0})
+  tl.from('#orange-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
+  tl.from('.orange-text',.4,{opacity:0},'-=.25');
         tl.fromTo('.label-5',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-
-
 
     tl.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], .5, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
   // tl.from('#get-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
@@ -97,7 +125,7 @@ show: { effect: 'fade', duration: 400 }
   tl.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
   tl.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
 
-
+    // return tl;
   }
 
 
@@ -152,7 +180,7 @@ show: { effect: 'fade', duration: 400 }
 
 
 
-    let lastBox = gsap.timeline({ease:'power4'});
+  let lastBox = gsap.timeline({ease:'power4'});
 
   lastBox.from('#circle_1',.5,{x:250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'});
   lastBox.from('#slack_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
@@ -181,20 +209,6 @@ show: { effect: 'fade', duration: 400 }
   lastBox.from('#circle_7',.5,{x:-250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '<');
   lastBox.from('#facebook_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
   lastBox.from('#Facebook_Messanger',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
-
-
-  const controller = new ScrollMagic.Controller();
-
-  // let main = gsap.timeline({onUpdate:trackProgress});
-
-  // main.add(trackProgress);
-  // main.timeScale(5)
-  // main.pause();
-
-  // function trackProgress(){
-  // 	tl.progress()
-  // }
-
 
 
     let mainGraphic = gsap.timeline({ease: Linear.easeNone });
@@ -228,27 +242,95 @@ show: { effect: 'fade', duration: 400 }
     mainGraphic.from('#orange-line',.5,{height:0,opacity:0})
     mainGraphic.from('#orange-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
     mainGraphic.from('.orange-text',.4,{opacity:0},'-=.25');
+    // mainGraphic.add(stepGraphic);
+
+    // let w = window.innerWidth;
+    // // var tween = new TimelineMax();
+    // let controller;
+    // let size = w > 1280 ? "big" : "small";
+    // if (size === "big") {
+    //   desktopPlay()
+    //   // desktopPlay()
+    //   // topGraphic()
+    // } else {
+
+    // }
 
 
+function sizeIt() {
+  w = window.innerWidth;
+  var newSize = w > 1280 ? 'big' : 'small';
+  if (newSize != size) {
+    size = newSize;
+    if (newSize === 'small') {
+      console.log('The screen is now small - ScrollMagic has been destroyed by aliens.');
+      // TweenMax.set("#target", { clearProps: "all" });
+      // mainGraphic.add(stepGraphic);
+      // topGraphic.seek(0)
+      topGraphic()
+      // mobilePlay()
+      controller.destroy(true);
+      // tl.restart()
+      // tl.play()
+    } else {
+      console.log('The screen is now large - ScrollMagic is active.');
+      // mainGraphic.remove(stepGraphic);
+      // topGraphic.restart()
+      // topGraphic.pause()
+      // mainGraphic.restart().pause()
+      // stepGraphic.seek(0);
+      // controller.enabled(true);
+      // desktopPlay()
 
+    }
+  }
+}
+
+// window.addEventListener("resize", sizeIt);
+
+
+// function desktopPlay(){
+let controller = new ScrollMagic.Controller();
+//
   let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
             scene.setTween(mainGraphic);
             scene.addTo(controller);
 
 
-  let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'100%', offset:'100px'})
+  // let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'80%', offset:'100px'})
+  let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .1, duration:'80%', offset:'100px'})
             .setPin('#service-workflows-sec')// add indicators (requires plugin)
-            .addTo(controller);
+            .addTo(controller)
+            // .addIndicators({name: "step pin"})
+            // .setTween(stepGraphic)
+            // .addTo(controller)
 
-  let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.7, duration:700})
-            stepScene.setTween(stepGraphic);
+  let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.35, duration:90 } )
+  stepScene.setTween(stepGraphic);
             stepScene.addTo(controller);
+            // stepScene.addIndicators({name: "stepTrigger"})
+
+  let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
+  lastScene.setTween(lastBox) 
+  lastScene.addTo(controller);
 
 
 
-  let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec',triggerHook: .5, offset:'-80px'})
-            lastScene.setTween(lastBox) 
-            lastScene.addTo(controller);
+          // }
+  function mobilePlay(){
+
+    let main = gsap.timeline();
+
+
+    stepGraphic.seek(0)
+        main.add(mainGraphic);
+        // main.add(stepGraphic);
+
+    // function trackProgress(){
+    //   tl.progress()
+    // }
+
+  }
 
 
     function buildForAnimation(prefix){
