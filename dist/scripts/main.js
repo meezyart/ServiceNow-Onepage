@@ -379,7 +379,7 @@ $(document).ready(function () {
   }); // animation Build
   //  bring in all of the boxes
 
-  stepGraphic.fromTo('.label-5', .5, {
+  stepGraphic.fromTo('.label-5', 1.3, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 180,
@@ -390,7 +390,7 @@ $(document).ready(function () {
     rotationX: 0,
     opacity: 1
   });
-  stepGraphic.staggerFromTo(['#request-box', '#get-box', '#place-box', '#send-box'], .5, {
+  stepGraphic.staggerFromTo(['#request-box', '#get-box', '#place-box', '#send-box'], 1, {
     ease: 'power',
     transformOrigin: '50% 50%',
     scale: .5,
@@ -691,7 +691,7 @@ $(document).ready(function () {
   var mainGraphic = gsap.timeline({
     ease: Linear.easeNone
   });
-  mainGraphic.fromTo('.label-1', .5, {
+  mainGraphic.fromTo('.label-1', 1, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 180,
@@ -716,14 +716,14 @@ $(document).ready(function () {
   mainGraphic.from('#mainText', .5, {
     opacity: 0
   });
-  mainGraphic.to('.label-1', .25, {
+  mainGraphic.to('.label-1', .5, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 90,
     opacity: 0,
     delay: 2
   });
-  mainGraphic.fromTo('.label-2', .5, {
+  mainGraphic.fromTo('.label-2', 1, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 180,
@@ -741,10 +741,10 @@ $(document).ready(function () {
   mainGraphic.to('#order', .25, {
     fill: '#fff'
   }, '-=.25');
-  mainGraphic.from('#pink-line', .5, {
+  mainGraphic.from('#pink-line', .75, {
     opacity: 0
   });
-  mainGraphic.from('#pink-textbox', .5, {
+  mainGraphic.from('#pink-textbox', .75, {
     opacity: 0,
     height: 0,
     ease: 'power3',
@@ -753,14 +753,14 @@ $(document).ready(function () {
   mainGraphic.from('#pink-text', .4, {
     opacity: 0
   }, '-=.25');
-  mainGraphic.to('.label-2', .25, {
+  mainGraphic.to('.label-2', .5, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 90,
     opacity: 0,
     delay: 2
   });
-  mainGraphic.fromTo('.label-3', .5, {
+  mainGraphic.fromTo('.label-3', 1, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 180,
@@ -778,10 +778,10 @@ $(document).ready(function () {
   mainGraphic.to('#laptop', .25, {
     fill: '#fff'
   }, '-=.25');
-  mainGraphic.from('#green-line', .5, {
+  mainGraphic.from('#green-line', .75, {
     opacity: 0
   });
-  mainGraphic.from('#green-textbox', .5, {
+  mainGraphic.from('#green-textbox', .75, {
     opacity: 0,
     height: 0,
     ease: 'power3',
@@ -790,14 +790,14 @@ $(document).ready(function () {
   mainGraphic.from('#green-text', .4, {
     opacity: 0
   }, '-=.25');
-  mainGraphic.to('.label-3', .25, {
+  mainGraphic.to('.label-3', .5, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 90,
     opacity: 0,
     delay: 2
   });
-  mainGraphic.fromTo('.label-4', .5, {
+  mainGraphic.fromTo('.label-4', 1, {
     ease: 'power',
     transformOrigin: '50% 50%',
     rotationX: 180,
@@ -815,11 +815,11 @@ $(document).ready(function () {
   mainGraphic.to('#me', .25, {
     fill: '#fff'
   }, '-=.25');
-  mainGraphic.from('#orange-line', .5, {
+  mainGraphic.from('#orange-line', .75, {
     height: 0,
     opacity: 0
   });
-  mainGraphic.from('#orange-textbox', .5, {
+  mainGraphic.from('#orange-textbox', .75, {
     opacity: 0,
     height: 0,
     ease: 'power3',
@@ -830,14 +830,16 @@ $(document).ready(function () {
   }, '-=.25'); // mainGraphic.add(stepGraphic);
   // let w = window.innerWidth;
   // // var tween = new TimelineMax();
-  // let controller;
-  // let size = w > 1280 ? "big" : "small";
+
+  var controller; // let size = w > 1280 ? "big" : "small";
   // if (size === "big") {
   //   desktopPlay()
   //   // desktopPlay()
   //   // topGraphic()
   // } else {
   // }
+
+  var stepDuration = 370;
 
   function sizeIt() {
     w = window.innerWidth;
@@ -850,11 +852,10 @@ $(document).ready(function () {
         console.log('The screen is now small - ScrollMagic has been destroyed by aliens.'); // TweenMax.set("#target", { clearProps: "all" });
         // mainGraphic.add(stepGraphic);
         // topGraphic.seek(0)
+        // topGraphic()
+        // mobilePlay()
 
-        topGraphic(); // mobilePlay()
-
-        controller.destroy(true); // tl.restart()
-        // tl.play()
+        controller.destroy(true);
       } else {
         console.log('The screen is now large - ScrollMagic is active.'); // mainGraphic.remove(stepGraphic);
         // topGraphic.restart()
@@ -869,7 +870,7 @@ $(document).ready(function () {
   // function desktopPlay(){
 
 
-  var controller = new ScrollMagic.Controller(); //
+  controller = new ScrollMagic.Controller(); //
 
   var scene = new ScrollMagic.Scene({
     triggerElement: '#service-workflows-sec',
@@ -892,8 +893,9 @@ $(document).ready(function () {
 
   var stepScene = new ScrollMagic.Scene({
     triggerElement: '#stepTrigger',
-    triggerHook: 0.35,
-    duration: 90
+    triggerHook: 0.27,
+    duration: stepDuration,
+    offset: '  2.5rem'
   });
   stepScene.setTween(stepGraphic);
   stepScene.addTo(controller); // stepScene.addIndicators({name: "stepTrigger"})

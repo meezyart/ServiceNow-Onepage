@@ -133,8 +133,8 @@ show: { effect: 'fade', duration: 400 }
 
   // animation Build
   //  bring in all of the boxes
-  stepGraphic.fromTo('.label-5',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-  stepGraphic.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], .5, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
+  stepGraphic.fromTo('.label-5',1.3, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+  stepGraphic.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], 1, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
 
   // Request Box
   stepGraphic.to('#request-box',.5,{opacity:1}, '-=0.25');
@@ -213,40 +213,40 @@ show: { effect: 'fade', duration: 400 }
 
     let mainGraphic = gsap.timeline({ease: Linear.easeNone });
 
-    mainGraphic.fromTo('.label-1',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+    mainGraphic.fromTo('.label-1',1, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
     mainGraphic.from('#talk-box',.5,{scale:0,width:0 , ease:'elastic.out', transformOrigin:'0 200'});
     mainGraphic.from('#pic-circle',.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},'-=.25');
     mainGraphic.from('#mainText',.5,{opacity:0});
-    mainGraphic.to('.label-1',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2});
-    mainGraphic.fromTo('.label-2',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+    mainGraphic.to('.label-1',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2});
+    mainGraphic.fromTo('.label-2',1, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
     mainGraphic.from('#order-rect',.15,{opacity:0,width:0},'+=.15');
     mainGraphic.to('#order',.25,{fill:'#fff'},'-=.25');
-    mainGraphic.from('#pink-line',.5,{opacity:0})
-    mainGraphic.from('#pink-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+    mainGraphic.from('#pink-line',.75,{opacity:0})
+    mainGraphic.from('#pink-textbox',.75,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
     mainGraphic.from('#pink-text',.4,{opacity:0},'-=.25')
 
-    mainGraphic.to('.label-2',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
-    mainGraphic.fromTo('.label-3',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+    mainGraphic.to('.label-2',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+    mainGraphic.fromTo('.label-3',1, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
 
     mainGraphic.from('#laptop-rect',.15,{opacity:0,width:0})
     mainGraphic.to('#laptop',.25,{fill:'#fff'},'-=.25')
-    mainGraphic.from('#green-line',.5,{opacity:0})
-    mainGraphic.from('#green-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+    mainGraphic.from('#green-line',.75,{opacity:0})
+    mainGraphic.from('#green-textbox',.75,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
     mainGraphic.from('#green-text',.4,{opacity:0},'-=.25')
 
-    mainGraphic.to('.label-3',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
-    mainGraphic.fromTo('.label-4',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+    mainGraphic.to('.label-3',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+    mainGraphic.fromTo('.label-4',1, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
 
     mainGraphic.from('#me-rect',.15,{opacity:0,width:0})
     mainGraphic.to('#me',.25,{fill:'#fff'},'-=.25');
-    mainGraphic.from('#orange-line',.5,{height:0,opacity:0})
-    mainGraphic.from('#orange-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
+    mainGraphic.from('#orange-line',.75,{height:0,opacity:0})
+    mainGraphic.from('#orange-textbox',.75,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
     mainGraphic.from('.orange-text',.4,{opacity:0},'-=.25');
     // mainGraphic.add(stepGraphic);
 
     // let w = window.innerWidth;
     // // var tween = new TimelineMax();
-    // let controller;
+    let controller;
     // let size = w > 1280 ? "big" : "small";
     // if (size === "big") {
     //   desktopPlay()
@@ -255,7 +255,7 @@ show: { effect: 'fade', duration: 400 }
     // } else {
 
     // }
-
+    let stepDuration = 370;
 
 function sizeIt() {
   w = window.innerWidth;
@@ -267,11 +267,9 @@ function sizeIt() {
       // TweenMax.set("#target", { clearProps: "all" });
       // mainGraphic.add(stepGraphic);
       // topGraphic.seek(0)
-      topGraphic()
+      // topGraphic()
       // mobilePlay()
       controller.destroy(true);
-      // tl.restart()
-      // tl.play()
     } else {
       console.log('The screen is now large - ScrollMagic is active.');
       // mainGraphic.remove(stepGraphic);
@@ -290,7 +288,7 @@ function sizeIt() {
 
 
 // function desktopPlay(){
-let controller = new ScrollMagic.Controller();
+controller = new ScrollMagic.Controller();
 //
   let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
             scene.setTween(mainGraphic);
@@ -305,7 +303,9 @@ let controller = new ScrollMagic.Controller();
             // .setTween(stepGraphic)
             // .addTo(controller)
 
-  let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.35, duration:90 } )
+
+
+  let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.27, duration:stepDuration , offset:'  2.5rem'} )
   stepScene.setTween(stepGraphic);
             stepScene.addTo(controller);
             // stepScene.addIndicators({name: "stepTrigger"})
