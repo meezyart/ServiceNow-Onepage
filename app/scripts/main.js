@@ -5,204 +5,201 @@ $(document).ready(function () {
 
    // build-scenario tabs
    $('.build-scenario-tabs').tabs({
+      hide: { effect: 'fade', duration: 500 },
+      show: { effect: 'fade', duration: 800 }
+  });
 
-    hide: { effect: 'fade', duration: 500 },
-    show: { effect: 'fade', duration: 800 }
-});
+  // Start Quickly tabs
+  $('.start-quickly-tabs').tabs({
+    beforeActivate: function( ui ) {
+      console.log( ui.currentTarget.id,ui)
+      if(ui.currentTarget.id){
+        let tl = gsap.timeline();
+            tl.to('#backImg', .5, {opacity:0},'-=.25')
+              .set('#backImg',{attr:{src:`../images/${ui.currentTarget.id}-img.jpg`}})
+              .to('#backImg', 1, {opacity:1})
+              .add(buildForAnimation(`#${ui.currentTarget.id}-content .subtabContent `));
+      }
+      },
+        hide: { effect: 'fade', duration: 500 },
+        show: { effect: 'fade', duration: 800 }
+    });
+    //
+    $('.subtabs').tabs({
+    beforeActivate: function( ui ) {
+      console.log( ui.currentTarget.hash,ui)
+      let buildTL = gsap.timeline();
+      buildTL.add(buildForAnimation(ui.currentTarget.hash));
+      buildTL.restart();
+      buildTL.play();
+      },
+      hide: { effect: 'fade', duration: 400 },
+      show: { effect: 'fade', duration: 400 }
+    });
 
-// Start Quickly tabs
-$('.start-quickly-tabs').tabs({
-beforeActivate: function( ui ) {
-  console.log( ui.currentTarget.id,ui)
-  if(ui.currentTarget.id){
-    let tl = gsap.timeline();
-    tl.to('#backImg', .5, {opacity:0},'-=.25')
-    .set('#backImg',{attr:{src:`../images/${ui.currentTarget.id}-img.jpg`}})
-    .to('#backImg', 1, {opacity:1})
-    .add(buildForAnimation(`#${ui.currentTarget.id}-content .subtabContent `));
+    // Scroll Effects
+    function topGraphic(){
+      let tl = gsap.timeline({ease: Linear.easeNone });
+      // tl.from('#orange-box',.25,{opacity:0,scale:.1,ease:"elastic", transformOrigin:"50% 0%"},"-=.25")
 
-   }
+    // 	step graphic
 
-  },
-    hide: { effect: 'fade', duration: 500 },
-    show: { effect: 'fade', duration: 800 }
-});
-//
-$('.subtabs').tabs({
-beforeActivate: function( ui ) {
-  console.log( ui.currentTarget.hash,ui)
-  let buildTL = gsap.timeline();
-  buildTL.add(buildForAnimation(ui.currentTarget.hash));
-  buildTL.restart();
-  buildTL.play();
-  },
-  hide: { effect: 'fade', duration: 400 },
-  show: { effect: 'fade', duration: 400 }
-});
+    tl.fromTo('.label-1',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+    tl.from('#talk-box',.5,{scale:0,width:0 , ease:'elastic.out', transformOrigin:'0 200'});
+    tl.from('#pic-circle',.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},'-=.25');
+    tl.from('#mainText',.5,{opacity:0});
+    tl.to('.label-1',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2});
+    tl.fromTo('.label-2',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+    tl.from('#order-rect',.15,{opacity:0,width:0},'+=.15');
+    tl.to('#order',.25,{fill:'#fff'},'-=.25');
+    tl.from('#pink-line',.5,{opacity:0})
+    tl.from('#pink-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+    tl.from('#pink-text',.4,{opacity:0},'-=.25')
 
-// Scroll Effects
-function topGraphic(){
-    let tl = gsap.timeline({ease: Linear.easeNone });
-    // tl.from('#orange-box',.25,{opacity:0,scale:.1,ease:"elastic", transformOrigin:"50% 0%"},"-=.25")
+    tl.to('.label-2',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+    tl.fromTo('.label-3',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
 
-  // 	step graphic
+    tl.from('#laptop-rect',.15,{opacity:0,width:0})
+    tl.to('#laptop',.25,{fill:'#fff'},'-=.25')
+    tl.from('#green-line',.5,{opacity:0})
+    tl.from('#green-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
+    tl.from('#green-text',.4,{opacity:0},'-=.25')
 
-  tl.fromTo('.label-1',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:1}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-  tl.from('#talk-box',.5,{scale:0,width:0 , ease:'elastic.out', transformOrigin:'0 200'});
-  tl.from('#pic-circle',.5,{scale:0,  ease:'elastic.out', transformOrigin:'50% 50%'},'-=.25');
-  tl.from('#mainText',.5,{opacity:0});
-  tl.to('.label-1',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2});
-  tl.fromTo('.label-2',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-  tl.from('#order-rect',.15,{opacity:0,width:0},'+=.15');
-  tl.to('#order',.25,{fill:'#fff'},'-=.25');
-  tl.from('#pink-line',.5,{opacity:0})
-  tl.from('#pink-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
-  tl.from('#pink-text',.4,{opacity:0},'-=.25')
+    tl.to('.label-3',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
+    tl.fromTo('.label-4',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
 
-  tl.to('.label-2',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
-  tl.fromTo('.label-3',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+    tl.from('#me-rect',.15,{opacity:0,width:0})
+    tl.to('#me',.25,{fill:'#fff'},'-=.25');
+    tl.from('#orange-line',.5,{height:0,opacity:0})
+    tl.from('#orange-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
+    tl.from('.orange-text',.4,{opacity:0},'-=.25');
+          tl.fromTo('.label-5',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
 
-  tl.from('#laptop-rect',.15,{opacity:0,width:0})
-  tl.to('#laptop',.25,{fill:'#fff'},'-=.25')
-  tl.from('#green-line',.5,{opacity:0})
-  tl.from('#green-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25')
-  tl.from('#green-text',.4,{opacity:0},'-=.25')
+      tl.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], .5, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
+    // tl.from('#get-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
+    // tl.from('#place-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
+    // tl.from('#send-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
 
-  tl.to('.label-3',.25, {ease:'power',transformOrigin:'50% 50%',rotationX:90, opacity:0, delay:2})
-  tl.fromTo('.label-4',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1})
+    // Request Box
+    tl.to('#request-box',.5,{opacity:1}, '-=0.25');
+    tl.from('#progress',.25,{width:0,transformOrigin:'50% 50%'})
+    tl.from('#user',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark-3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    tl.from('#arrow1',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
+    tl.to('#request-box',.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
 
-  tl.from('#me-rect',.15,{opacity:0,width:0})
-  tl.to('#me',.25,{fill:'#fff'},'-=.25');
-  tl.from('#orange-line',.5,{height:0,opacity:0})
-  tl.from('#orange-textbox',.5,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
-  tl.from('.orange-text',.4,{opacity:0},'-=.25');
-        tl.fromTo('.label-5',.5, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-
-    tl.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], .5, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
-  // tl.from('#get-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
-  // tl.from('#place-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
-  // tl.from('#send-box',.5,{opacity:0,scale:.1,ease:"power", transformOrigin:"50% 50%",stagger: 0.5});
-
-  // Request Box
-  tl.to('#request-box',.5,{opacity:1}, '-=0.25');
-  tl.from('#progress',.25,{width:0,transformOrigin:'50% 50%'})
-  tl.from('#user',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark-3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  tl.from('#arrow1',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
-  tl.to('#request-box',.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
-
-  // Get Approval Box
-  tl.to('#get-box',.5,{opacity:1}, '<');
-  tl.from('#progressbar-2',.25,{width:0,transformOrigin:'50% 50%'})
-  tl.from('#manager',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark-2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  tl.from('#arrow2',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
-  tl.to(['#get-box','#arrow1'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
+    // Get Approval Box
+    tl.to('#get-box',.5,{opacity:1}, '<');
+    tl.from('#progressbar-2',.25,{width:0,transformOrigin:'50% 50%'})
+    tl.from('#manager',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark-2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    tl.from('#arrow2',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
+    tl.to(['#get-box','#arrow1'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
 
 
-  // Place Order Box
-  tl.to('#place-box',.5,{opacity:1}, '<');
-  tl.from('#progressbar',.25,{width:0,transformOrigin:'50% 50%'})
-  tl.from('#it',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  tl.to(['#place-box','#arrow2'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '-=0.25');
-  tl.from('#arrow3',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '<');
+    // Place Order Box
+    tl.to('#place-box',.5,{opacity:1}, '<');
+    tl.from('#progressbar',.25,{width:0,transformOrigin:'50% 50%'})
+    tl.from('#it',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    tl.to(['#place-box','#arrow2'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '-=0.25');
+    tl.from('#arrow3',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '<');
 
-  // Send Approval Box
-  tl.to('#send-box',.25,{opacity:1}, '<');
-  // user
-  tl.from('#progress1',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  tl.from('#user_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark1',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  // manager
-  tl.from('#progress2',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  tl.from('#manager_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  // it
-  tl.from('#progress3',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  tl.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  tl.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // Send Approval Box
+    tl.to('#send-box',.25,{opacity:1}, '<');
+    // user
+    tl.from('#progress1',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    tl.from('#user_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark1',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // manager
+    tl.from('#progress2',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    tl.from('#manager_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // it
+    tl.from('#progress3',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    tl.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    tl.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
 
-}
-
-
-  let stepGraphic = gsap.timeline({ease: Linear.easeNone });
-
-  // animation Build
-  //  bring in all of the boxes
-  stepGraphic.fromTo('.label-5',1.3, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
-  stepGraphic.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], 1, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
-
-  // Request Box
-  stepGraphic.to('#request-box',.5,{opacity:1}, '-=0.25');
-  stepGraphic.from('#progress',.25,{width:0,transformOrigin:'50% 50%'})
-  stepGraphic.from('#user',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark-3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.from('#arrow1',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
-  stepGraphic.to('#request-box',.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
-
-  // Get Approval Box
-  stepGraphic.to('#get-box',.5,{opacity:1}, '<');
-  stepGraphic.from('#progressbar-2',.25,{width:0,transformOrigin:'50% 50%'})
-  stepGraphic.from('#manager',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark-2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.from('#arrow2',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
-  stepGraphic.to(['#get-box','#arrow1'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
+    }
 
 
-  // Place Order Box
-  stepGraphic.to('#place-box',.5,{opacity:1}, '<');
-  stepGraphic.from('#progressbar',.25,{width:0,transformOrigin:'50% 50%'})
-  stepGraphic.from('#it',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.to(['#place-box','#arrow2'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '-=0.25');
-  stepGraphic.from('#arrow3',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '<');
+let stepGraphic = gsap.timeline({ease: Linear.easeNone });
 
-  // Send Approval Box
-  stepGraphic.to('#send-box',.25,{opacity:1}, '<');
-  // user
-  stepGraphic.from('#progress1',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.from('#user_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark1',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  // manager
-  stepGraphic.from('#progress2',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.from('#manager_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
-  // it
-  stepGraphic.from('#progress3',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
-  stepGraphic.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
-  stepGraphic.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // animation Build
+    //  bring in all of the boxes
+    stepGraphic.fromTo('.label-5',1.3, {ease:'power',transformOrigin:'50% 50%',rotationX:180, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',rotationX:0, opacity:1});
+    stepGraphic.staggerFromTo(['#request-box','#get-box','#place-box','#send-box'], 1, {ease:'power',transformOrigin:'50% 50%',scale:.5, opacity:0}, {ease:'power4',transformOrigin:'50% 50%',scale:1, opacity:0.5}, .25);
+
+    // Request Box
+    stepGraphic.to('#request-box',.5,{opacity:1}, '-=0.25');
+    stepGraphic.from('#progress',.25,{width:0,transformOrigin:'50% 50%'})
+    stepGraphic.from('#user',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark-3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.from('#arrow1',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
+    stepGraphic.to('#request-box',.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
+
+    // Get Approval Box
+    stepGraphic.to('#get-box',.5,{opacity:1}, '<');
+    stepGraphic.from('#progressbar-2',.25,{width:0,transformOrigin:'50% 50%'})
+    stepGraphic.from('#manager',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark-2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.from('#arrow2',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '-=0.25');
+    stepGraphic.to(['#get-box','#arrow1'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '<');
+
+
+    // Place Order Box
+    stepGraphic.to('#place-box',.5,{opacity:1}, '<');
+    stepGraphic.from('#progressbar',.25,{width:0,transformOrigin:'50% 50%'})
+    stepGraphic.from('#it',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.to(['#place-box','#arrow2'],.5,{opacity:.5,ease:'power', transformOrigin:'50% 50%'}, '-=0.25');
+    stepGraphic.from('#arrow3',.5,{x:'-160.66', opacity:0, transformOrigin:'0 50%'}, '<');
+
+    // Send Approval Box
+    stepGraphic.to('#send-box',.25,{opacity:1}, '<');
+    // user
+    stepGraphic.from('#progress1',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.from('#user_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark1',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // manager
+    stepGraphic.from('#progress2',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.from('#manager_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark2',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
+    // it
+    stepGraphic.from('#progress3',.25,{width:0,transformOrigin:'50% 50%'}, '-=0.25')
+    stepGraphic.from('#it_sm',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'})
+    stepGraphic.from('#checkmark3',.5,{opacity:0,scale:.1,ease:'elastic', transformOrigin:'50% 50%'}, '-=0.25')
 
 
 let lastBox = gsap.timeline({ease:'power4'});
 
-  lastBox.from('#circle_1',.5,{x:250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'});
-  lastBox.from('#slack_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Slack',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_1',.5,{x:250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'});
+    lastBox.from('#slack_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Slack',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_2',.5,{x:250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
-  lastBox.from('#workplace_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Workplace_by_Facebook',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_2',.5,{x:250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
+    lastBox.from('#workplace_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Workplace_by_Facebook',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_3',.5,{x:250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
-  lastBox.from('#teams_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Microsoft_Teams',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_3',.5,{x:250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
+    lastBox.from('#teams_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Microsoft_Teams',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_4',.5,{y:350, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
-  lastBox.from('#mobile_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Now_Mobile',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_4',.5,{y:350, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
+    lastBox.from('#mobile_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Now_Mobile',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_5',.5,{x:-250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
-  lastBox.from('#Service_portal_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#ServiceNow_Portals',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_5',.5,{x:-250,y:225, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
+    lastBox.from('#Service_portal_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#ServiceNow_Portals',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_6',.5,{x:-250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
-  lastBox.from('#web_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Web_Pages',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_6',.5,{x:-250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'},'<');
+    lastBox.from('#web_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Web_Pages',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
-  lastBox.from('#circle_7',.5,{x:-250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '<');
-  lastBox.from('#facebook_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
-  lastBox.from('#Facebook_Messanger',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
+    lastBox.from('#circle_7',.5,{x:-250,y:25, opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '<');
+    lastBox.from('#facebook_Image',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.25');
+    lastBox.from('#Facebook_Messanger',.5,{opacity:0,scale:.1,ease:'power4', transformOrigin:'50% 50%'}, '-=0.5');
 
 
 let mainGraphic = gsap.timeline({ease: Linear.easeNone });
@@ -237,70 +234,31 @@ let mainGraphic = gsap.timeline({ease: Linear.easeNone });
     mainGraphic.from('#orange-textbox',.75,{opacity:0,height:0, ease:'power3',transformOrigin:'50% 0'},'-=.25');
     mainGraphic.from('.orange-text',.4,{opacity:0},'-=.25');
 
-    // // var tween = new TimelineMax();
-    let controller;
-    // let size = w > 1280 ? "big" : "small";
-    // if (size === "big") {
-    //   desktopPlay()
-    //   // desktopPlay()
-    //   // topGraphic()
-    // } else {
 
-    // }
-    let stepDuration = 370;
+    let stepDuration = 400;
 
-function sizeIt() {
-  w = window.innerWidth;
-  var newSize = w > 1280 ? 'big' : 'small';
-  if (newSize != size) {
-    size = newSize;
-    if (newSize === 'small') {
-      console.log('The screen is now small - ScrollMagic has been destroyed by aliens.');
-      // TweenMax.set("#target", { clearProps: "all" });
-      // mainGraphic.add(stepGraphic);
-      // topGraphic.seek(0)
-      // topGraphic()
-      // mobilePlay()
-      controller.destroy(true);
-    } else {
-      console.log('The screen is now large - ScrollMagic is active.');
-      // mainGraphic.remove(stepGraphic);
-      // topGraphic.restart()
-      // topGraphic.pause()
-      // mainGraphic.restart().pause()
-      // stepGraphic.seek(0);
-      // controller.enabled(true);
-      // desktopPlay()
+    let controller = new ScrollMagic.Controller();
 
-    }
-  }
-}
-
-// window.addEventListener("resize", sizeIt);
+    let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
+              scene.setTween(mainGraphic);
+              scene.addTo(controller);
 
 
-controller = new ScrollMagic.Controller();
-
-let scene = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .6, duration:'100%', offset:'100px'})
-          scene.setTween(mainGraphic);
-          scene.addTo(controller);
-
-
-let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .2, duration:'80%', offset:'100px'})
-          .setPin('#service-workflows-sec')// add indicators (requires plugin)
-          .addTo(controller)
-          // .addIndicators({name: "step pin"})
+    let scene2 = new ScrollMagic.Scene({triggerElement: '#service-workflows-sec',triggerHook: .2, duration:'80%', offset:'100px'})
+              .setPin('#service-workflows-sec')
+              .addTo(controller)
+              // .addIndicators({name: "step pin"})
 
 
 
-let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.37, duration:stepDuration , offset:'  -.5rem'} )
-      stepScene.setTween(stepGraphic);
-      stepScene.addTo(controller);
-            // stepScene.addIndicators({name: "stepTrigger"})
+    let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.37, duration:stepDuration , offset:'-50px'})
+                    stepScene.setTween(stepGraphic);
+                    stepScene.addTo(controller);
+                stepScene.addIndicators({name: 'stepTrigger'})
 
-let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
-      lastScene.setTween(lastBox) 
-      lastScene.addTo(controller);
+    let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
+                lastScene.setTween(lastBox) 
+                lastScene.addTo(controller);
 
 
 
