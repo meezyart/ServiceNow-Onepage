@@ -254,7 +254,7 @@ let mainGraphic = gsap.timeline({ease: Linear.easeNone });
     let stepScene = new ScrollMagic.Scene({triggerElement: '#stepTrigger',triggerHook:0.37, duration:stepDuration , offset:'-50px'})
                     stepScene.setTween(stepGraphic);
                     stepScene.addTo(controller);
-                stepScene.addIndicators({name: 'stepTrigger'})
+                // stepScene.addIndicators({name: 'stepTrigger'})
 
     let lastScene = new ScrollMagic.Scene({triggerElement: '#connect-anywhere-sec', offset:'-80px'})
                 lastScene.setTween(lastBox) 
