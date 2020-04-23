@@ -827,47 +827,9 @@ $(document).ready(function () {
   }, '-=.25');
   mainGraphic.from('.orange-text', .4, {
     opacity: 0
-  }, '-=.25'); // // var tween = new TimelineMax();
-
-  var controller; // let size = w > 1280 ? "big" : "small";
-  // if (size === "big") {
-  //   desktopPlay()
-  //   // desktopPlay()
-  //   // topGraphic()
-  // } else {
-  // }
-
-  var stepDuration = 370;
-
-  function sizeIt() {
-    w = window.innerWidth;
-    var newSize = w > 1280 ? 'big' : 'small';
-
-    if (newSize != size) {
-      size = newSize;
-
-      if (newSize === 'small') {
-        console.log('The screen is now small - ScrollMagic has been destroyed by aliens.'); // TweenMax.set("#target", { clearProps: "all" });
-        // mainGraphic.add(stepGraphic);
-        // topGraphic.seek(0)
-        // topGraphic()
-        // mobilePlay()
-
-        controller.destroy(true);
-      } else {
-        console.log('The screen is now large - ScrollMagic is active.'); // mainGraphic.remove(stepGraphic);
-        // topGraphic.restart()
-        // topGraphic.pause()
-        // mainGraphic.restart().pause()
-        // stepGraphic.seek(0);
-        // controller.enabled(true);
-        // desktopPlay()
-      }
-    }
-  } // window.addEventListener("resize", sizeIt);
-
-
-  controller = new ScrollMagic.Controller();
+  }, '-=.25');
+  var stepDuration = 400;
+  var controller = new ScrollMagic.Controller();
   var scene = new ScrollMagic.Scene({
     triggerElement: '#service-workflows-sec',
     triggerHook: .6,
@@ -881,17 +843,16 @@ $(document).ready(function () {
     triggerHook: .2,
     duration: '80%',
     offset: '100px'
-  }).setPin('#service-workflows-sec') // add indicators (requires plugin)
-  .addTo(controller); // .addIndicators({name: "step pin"})
+  }).setPin('#service-workflows-sec').addTo(controller); // .addIndicators({name: "step pin"})
 
   var stepScene = new ScrollMagic.Scene({
     triggerElement: '#stepTrigger',
     triggerHook: 0.37,
     duration: stepDuration,
-    offset: '  -.5rem'
+    offset: '-50px'
   });
   stepScene.setTween(stepGraphic);
-  stepScene.addTo(controller); // stepScene.addIndicators({name: "stepTrigger"})
+  stepScene.addTo(controller); // stepScene.addIndicators({name: 'stepTrigger'})
 
   var lastScene = new ScrollMagic.Scene({
     triggerElement: '#connect-anywhere-sec',
