@@ -120,7 +120,7 @@ if (document.querySelector('.sNowGlobalNav')) {
 
 
 
-      
+
       $('#dismiss-nav').on('click', function(e) {
           'mouseover' === e.type && $('#meganav18.mobile').length || ($('#meganav18.mobile').length && $('#topNavLinks').slideUp(100, function(e) {
               $('#meganav18').removeClass('mobile open search'),
