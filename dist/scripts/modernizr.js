@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.10.0
+ * modernizr v3.11.2
  * Build https://modernizr.com/download?-serviceworker-sizes-srcset-supports-touchevents-addtest-atrule-domprefixes-hasevent-load-mq-prefixed-prefixedcss-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin-cssclassprefix:modernizr-
  *
  * Copyright (c)
@@ -36,7 +36,7 @@
    */
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.10.0',
+    _version: '3.11.2',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -1346,6 +1346,44 @@
 
   ;
 
+
+  /**
+   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
+   * called inside of a hidden iframe
+   *
+   * @access private
+   * @function computedStyle
+   * @param {HTMLElement|SVGElement} elem - The element we want to find the computed styles of
+   * @param {string|null} [pseudo] - An optional pseudo element selector (e.g. :before), of null if none
+   * @param {string} prop - A CSS property
+   * @returns {CSSStyleDeclaration} the value of the specified CSS property
+   */
+  function computedStyle(elem, pseudo, prop) {
+    var result;
+
+    if ('getComputedStyle' in window) {
+      result = getComputedStyle.call(window, elem, pseudo);
+      var console = window.console;
+
+      if (result !== null) {
+        if (prop) {
+          result = result.getPropertyValue(prop);
+        }
+      } else {
+        if (console) {
+          var method = console.error ? 'error' : 'log';
+          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
+        }
+      }
+    } else {
+      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
+    }
+
+    return result;
+  }
+
+  ;
+
   /**
    * Modernizr.mq tests a given media query, live against the current state of the window
    * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
@@ -1404,9 +1442,7 @@
       var bool = false;
 
       injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
-        bool = (window.getComputedStyle ?
-          window.getComputedStyle(node, null) :
-          node.currentStyle).position === 'absolute';
+        bool = computedStyle(node, null, 'position') === 'absolute';
       });
 
       return bool;
@@ -1473,44 +1509,6 @@
     return name.replace(/([A-Z])/g, function(str, m1) {
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
-  }
-
-  ;
-
-
-  /**
-   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
-   * called inside of a hidden iframe
-   *
-   * @access private
-   * @function computedStyle
-   * @param {HTMLElement|SVGElement} elem - The element we want to find the computed styles of
-   * @param {string|null} [pseudo] - An optional pseudo element selector (e.g. :before), of null if none
-   * @param {string} prop - A CSS property
-   * @returns {CSSStyleDeclaration} the value of the specified CSS property
-   */
-  function computedStyle(elem, pseudo, prop) {
-    var result;
-
-    if ('getComputedStyle' in window) {
-      result = getComputedStyle.call(window, elem, pseudo);
-      var console = window.console;
-
-      if (result !== null) {
-        if (prop) {
-          result = result.getPropertyValue(prop);
-        }
-      } else {
-        if (console) {
-          var method = console.error ? 'error' : 'log';
-          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
-        }
-      }
-    } else {
-      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
-    }
-
-    return result;
   }
 
   ;
@@ -2155,6 +2153,7 @@ Test for the srcset attribute of images
 {
   "name": "ServiceWorker API",
   "property": "serviceworker",
+  "caniuse": "serviceworkers",
   "notes": [{
     "name": "ServiceWorkers Explained",
     "href": "https://github.com/slightlyoff/ServiceWorker/blob/master/explainer.md"
